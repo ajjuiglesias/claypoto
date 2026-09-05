@@ -56,7 +56,7 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-[#fbf8f2] text-[#2c2520] pb-24">
       {/* Admin Top Header - White & Cream */}
-      <header className="border-b border-[#ebd8c0] bg-white px-6 py-6 sticky top-[41px] z-30 shadow-xs">
+      <header className="border-b border-[#ebd8c0] bg-white px-6 py-6 sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">

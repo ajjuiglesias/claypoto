@@ -3,7 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { BookingProvider } from '@/context/BookingContext';
 import BookingModal from '@/components/booking/BookingModal';
-import DemoSwitcherBar from '@/components/layout/DemoSwitcherBar';
+
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -46,8 +46,6 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} scroll-smooth`}>
       <body className="min-h-screen bg-[#fbf8f2] text-[#2c2520] font-sans antialiased selection:bg-[#ebd8c0] selection:text-[#2c2520]">
         <BookingProvider>
-          {/* Top Demo Bar for Client Review & Admin Switch */}
-          <DemoSwitcherBar />
           
           {children}
 

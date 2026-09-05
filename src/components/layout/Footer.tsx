@@ -51,12 +51,6 @@ export default function Footer() {
             <li>
               <a href="#faq" className="hover:text-[#855b25] transition-colors">Questions & Answers</a>
             </li>
-            <li>
-              <Link href="/admin" className="text-[#855b25] hover:underline flex items-center gap-1 font-bold mt-2">
-                <span>Photographer Admin Portal</span>
-                <ArrowUpRight className="w-3 h-3" />
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -85,9 +79,6 @@ export default function Footer() {
         <div className="flex items-center gap-6 font-medium">
           <span>Privacy Policy</span>
           <span>Terms of Service</span>
-          <span className="flex items-center gap-1 text-[#855b25] font-bold">
-            <Camera className="w-3.5 h-3.5" /> High-Converting Architecture
-          </span>
         </div>
       </div>
     </footer>
