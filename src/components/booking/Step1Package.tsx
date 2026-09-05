@@ -35,13 +35,13 @@ export default function Step1Package() {
             <div
               key={pkg.id}
               onClick={() => setSelectedPackage(pkg)}
-              className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+              className={`p-3.5 sm:p-5 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 ${
                 isSelected
                   ? 'bg-[#fbf9f5] border-[#b8915b] shadow-md ring-1 ring-[#b8915b]'
                   : 'bg-white border-[#e8e2d5] hover:border-[#b8915b]/40 hover:bg-[#faf8f5]'
               }`}
             >
-              <div className="flex items-start gap-3.5">
+              <div className="flex items-start gap-3">
                 <div
                   className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                     isSelected ? 'border-[#8c6734] bg-[#8c6734]' : 'border-[#d6c7b0] bg-white'
@@ -51,12 +51,12 @@ export default function Step1Package() {
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                     <h4 className="text-[#1c1b19] font-serif text-base font-bold">
                       {pkg.name}
                     </h4>
                     {pkg.isPopular && (
-                      <span className="px-2 py-0.5 rounded-full bg-[#faf1e3] text-[#8c6734] text-[10px] uppercase font-bold tracking-wider border border-[#ebd8bd]">
+                      <span className="px-2 py-0.5 rounded-full bg-[#faf1e3] text-[#8c6734] text-[9px] sm:text-[10px] uppercase font-bold tracking-wider border border-[#ebd8bd]">
                         Most Popular
                       </span>
                     )}
@@ -68,11 +68,11 @@ export default function Step1Package() {
               </div>
 
               {/* Price Tag */}
-              <div className="sm:text-right pl-8 sm:pl-0 border-t sm:border-t-0 border-[#f0ece4] pt-2 sm:pt-0">
-                <div className="text-lg font-bold text-[#1c1b19] font-serif">
+              <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center pl-8 sm:pl-0 border-t sm:border-t-0 border-[#f0ece4] pt-2 sm:pt-0">
+                <div className="text-base sm:text-lg font-bold text-[#1c1b19] font-serif">
                   ${pkg.price}
                 </div>
-                <div className="text-[11px] font-bold text-[#8c6734]">
+                <div className="text-[10px] sm:text-[11px] font-bold text-[#8c6734]">
                   ${pkg.deposit} deposit today
                 </div>
               </div>

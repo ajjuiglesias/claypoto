@@ -35,28 +35,28 @@ export default function ProcessTimeline() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 bg-[#f5efe4] border-t border-[#ebd8c0] relative overflow-hidden">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#f5efe4] border-t border-[#ebd8c0] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-20">
+          <span className="text-[11px] sm:text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-2 sm:mb-3">
             The Frictionless Journey
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#2c2520] font-normal tracking-tight mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#2c2520] font-normal tracking-tight mb-3 sm:mb-4">
             From Inspiration to Booked in 2 Minutes.
           </h2>
-          <p className="text-sm sm:text-base text-[#5c4f44] font-light">
+          <p className="text-xs sm:text-sm lg:text-base text-[#5c4f44] font-light">
             No endless emails, no phone tag, and no PDF attachments. We respect your time with a modern booking experience you can complete from your phone.
           </p>
         </div>
 
         {/* 4 Connected Step Cards - White on Cream */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="relative p-8 rounded-3xl bg-white border border-[#ebd8c0] flex flex-col justify-between hover:border-[#b88548] hover:shadow-xl hover:-translate-y-1 transition-all group"
+                className="relative p-6 sm:p-8 rounded-3xl bg-white border border-[#ebd8c0] flex flex-col justify-between hover:border-[#b88548] hover:shadow-xl hover:-translate-y-1 transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -86,10 +86,10 @@ export default function ProcessTimeline() {
         </div>
 
         {/* Action Banner */}
-        <div className="mt-14 text-center">
+        <div className="mt-10 sm:mt-14 text-center">
           <button
             onClick={() => openBookingModal('pkg-signature')}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#b88548] hover:bg-[#a07136] text-white text-sm font-semibold tracking-wide shadow-xl transition-all hover:scale-105 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#b88548] hover:bg-[#a07136] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-xl transition-all hover:scale-105 cursor-pointer"
           >
             <span>Experience The Booking Flow</span>
             <ArrowRight className="w-4 h-4" />

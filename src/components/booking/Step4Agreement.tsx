@@ -60,14 +60,14 @@ export default function Step4Agreement() {
 
         {/* Dynamic Signature Visual Preview */}
         {signature && (
-          <div className="p-4 rounded-xl bg-[#faf1e3] border border-dashed border-[#b8915b] flex items-center justify-between">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-[#faf1e3] border border-dashed border-[#b8915b] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
             <div>
               <span className="text-[10px] uppercase text-[#736c61] font-bold block mb-1">Generated Signature:</span>
-              <span className="font-serif italic text-2xl text-[#8c6734] tracking-wide">
+              <span className="font-serif italic text-xl sm:text-2xl text-[#8c6734] tracking-wide break-words">
                 {signature}
               </span>
             </div>
-            <div className="text-right text-[10px] text-emerald-800 font-bold flex items-center gap-1">
+            <div className="text-left sm:text-right text-[10px] text-emerald-800 font-bold flex items-center gap-1 shrink-0">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
               <span>Timestamped & Verified</span>
             </div>

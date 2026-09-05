@@ -8,22 +8,22 @@ export default function PricingCards() {
   const { packages, openBookingModal } = useBooking();
 
   return (
-    <section id="pricing" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="pricing" className="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-20">
-        <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-3">
+      <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-20">
+        <span className="text-[11px] sm:text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-2 sm:mb-3">
           Transparent Investment
         </span>
-        <h2 className="font-serif text-3xl sm:text-5xl text-[#2c2520] font-normal tracking-tight mb-4">
+        <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#2c2520] font-normal tracking-tight mb-3 sm:mb-4">
           Simple Packages. Zero Guesswork.
         </h2>
-        <p className="text-sm sm:text-base text-[#5c4f44] font-light">
+        <p className="text-xs sm:text-sm lg:text-base text-[#5c4f44] font-light">
           No hidden fees or surprise print markups. Lock in your session date with a modest deposit today; pay the remainder when you step on set.
         </p>
       </div>
 
       {/* Package Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
         {packages.map((pkg) => {
           const isFeatured = pkg.isPopular;
           const remaining = pkg.price - pkg.deposit;
@@ -31,7 +31,7 @@ export default function PricingCards() {
           return (
             <div
               key={pkg.id}
-              className={`relative rounded-3xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 ${
+              className={`relative rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between transition-all duration-300 ${
                 isFeatured
                   ? 'bg-white border-2 border-[#b88548] shadow-xl shadow-[#b88548]/15 lg:-translate-y-2'
                   : 'bg-white border border-[#ebd8c0] hover:border-[#b88548] shadow-xs hover:shadow-lg'
@@ -39,7 +39,7 @@ export default function PricingCards() {
             >
               {/* Popular Badge */}
               {isFeatured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#b88548] text-white text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#b88548] text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Most Popular</span>
                 </div>
@@ -47,39 +47,39 @@ export default function PricingCards() {
 
               {/* Card Header */}
               <div>
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
                   <div>
-                    <h3 className="font-serif text-2xl text-[#2c2520] font-semibold mb-1">
+                    <h3 className="font-serif text-xl sm:text-2xl text-[#2c2520] font-semibold mb-1">
                       {pkg.name}
                     </h3>
                     <p className="text-xs text-[#7a6a5b] font-medium">{pkg.duration} · {pkg.outfits}</p>
                   </div>
                 </div>
 
-                <p className="text-xs text-[#5c4f44] italic font-light mb-6 min-h-[36px]">
+                <p className="text-xs text-[#5c4f44] italic font-light mb-5 sm:mb-6 min-h-[32px] sm:min-h-[36px]">
                   {pkg.tagline}
                 </p>
 
                 {/* Price Display */}
-                <div className="mb-6 pb-6 border-b border-[#f5efe4]">
-                  <div className="flex items-baseline gap-1 mb-2">
-                    <span className="font-serif text-4xl sm:text-5xl font-bold text-[#2c2520] tracking-tight">
+                <div className="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-[#f5efe4]">
+                  <div className="flex items-baseline gap-1.5 mb-2">
+                    <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2c2520] tracking-tight">
                       ${pkg.price}
                     </span>
-                    <span className="text-xs text-[#7a6a5b] uppercase tracking-wider font-bold">
+                    <span className="text-[11px] sm:text-xs text-[#7a6a5b] uppercase tracking-wider font-bold">
                       Total Session Fee
                     </span>
                   </div>
 
                   {/* Explicit Deposit Breakdown - Cream & White */}
-                  <div className="p-3.5 rounded-2xl bg-[#f5efe4] border border-[#ebd8c0] flex items-center justify-between text-xs shadow-2xs">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-[#f5efe4] border border-[#ebd8c0] flex items-center justify-between text-xs shadow-2xs">
                     <div>
                       <span className="text-[#7a6a5b] block text-[10px] uppercase font-bold">Lock date today</span>
-                      <span className="font-bold text-[#855b25] text-sm">${pkg.deposit} deposit</span>
+                      <span className="font-bold text-[#855b25] text-xs sm:text-sm">${pkg.deposit} deposit</span>
                     </div>
                     <div className="text-right">
                       <span className="text-[#7a6a5b] block text-[10px] uppercase font-bold">Due on shoot day</span>
-                      <span className="font-bold text-[#2c2520] text-sm">${remaining} remaining</span>
+                      <span className="font-bold text-[#2c2520] text-xs sm:text-sm">${remaining} remaining</span>
                     </div>
                   </div>
                 </div>

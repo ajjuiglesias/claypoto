@@ -9,15 +9,15 @@ export default function Footer() {
   const { openBookingModal } = useBooking();
 
   return (
-    <footer className="bg-[#f5efe4] border-t border-[#ebd8c0] pt-20 pb-12 px-6 text-sm text-[#5c4f44]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-[#f5efe4] border-t border-[#ebd8c0] pt-16 sm:pt-20 pb-10 sm:pb-12 px-4 sm:px-6 text-sm text-[#5c4f44]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
         {/* Brand Col */}
-        <div className="md:col-span-2 space-y-4">
+        <div className="md:col-span-2 space-y-3 sm:space-y-4">
           <Link href="/" className="inline-block">
-            <span className="font-serif text-3xl tracking-[0.2em] font-bold text-[#2c2520] block">
+            <span className="font-serif text-2xl sm:text-3xl tracking-[0.2em] font-bold text-[#2c2520] block">
               CLAY
             </span>
-            <span className="text-[11px] tracking-[0.35em] text-[#855b25] uppercase font-bold block">
+            <span className="text-[10px] sm:text-[11px] tracking-[0.35em] text-[#855b25] uppercase font-bold block">
               Photographer
             </span>
           </Link>

@@ -18,7 +18,7 @@ export default function Step3ClientInfo() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h3 className="font-serif text-xl text-[#1c1b19] font-semibold mb-1">
             Client Details
@@ -32,7 +32,7 @@ export default function Step3ClientInfo() {
         <button
           type="button"
           onClick={handleFillDemo}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#faf1e3] hover:bg-[#ebd8bd] text-[#8c6734] text-xs font-bold border border-[#d6ba92] transition-colors cursor-pointer"
+          className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#faf1e3] hover:bg-[#ebd8bd] text-[#8c6734] text-xs font-bold border border-[#d6ba92] transition-colors cursor-pointer"
         >
           <Wand2 className="w-3.5 h-3.5" />
           <span>Demo Auto-fill</span>

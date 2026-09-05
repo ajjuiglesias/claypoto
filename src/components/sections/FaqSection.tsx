@@ -30,20 +30,20 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 max-w-4xl mx-auto border-t border-[#ebd8c0]">
-      <div className="text-center mb-16">
-        <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-3">
+    <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 max-w-4xl mx-auto border-t border-[#ebd8c0]">
+      <div className="text-center mb-10 sm:mb-16">
+        <span className="text-[11px] sm:text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-2 sm:mb-3">
           Clear Answers
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#2c2520] font-normal tracking-tight mb-3">
+        <h2 className="font-serif text-2xl sm:text-4xl text-[#2c2520] font-normal tracking-tight mb-2 sm:mb-3">
           Frequently Asked Questions
         </h2>
-        <p className="text-sm text-[#5c4f44] font-light">
+        <p className="text-xs sm:text-sm text-[#5c4f44] font-light">
           Everything you need to know about our process, delivery, and policies.
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {faqs.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
@@ -53,7 +53,7 @@ export default function FaqSection() {
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
-                className="w-full p-6 text-left flex items-center justify-between gap-4 text-[#2c2520] font-semibold text-base hover:text-[#855b25] transition-colors cursor-pointer"
+                className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 text-[#2c2520] font-semibold text-sm sm:text-base hover:text-[#855b25] transition-colors cursor-pointer"
               >
                 <span>{faq.q}</span>
                 <ChevronDown

@@ -118,9 +118,9 @@ export default function Step5DepositPay() {
               type="text"
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#fbf9f5] border border-[#e8e2d5] text-[#1c1b19] text-xs font-mono focus:outline-none focus:border-[#8c6734]"
+              className="w-full pl-3.5 pr-28 py-2.5 rounded-xl bg-[#fbf9f5] border border-[#e8e2d5] text-[#1c1b19] text-xs font-mono focus:outline-none focus:border-[#8c6734]"
             />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[10px] text-[#736c61] font-bold">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[9px] sm:text-[10px] text-[#736c61] font-bold pointer-events-none">
               <span>VISA</span> · <span>MC</span> · <span>AMEX</span>
             </div>
           </div>
@@ -149,12 +149,12 @@ export default function Step5DepositPay() {
       </div>
 
       {/* Trust Guarantee Ribbon */}
-      <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-center justify-between font-medium">
+      <div className="p-3 sm:p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-center justify-between gap-2 font-medium">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-          <span>Due today: <strong>${amountToCharge}.00</strong> {paymentOption === 'deposit' && `($${futureRemaining} balance due later)`}</span>
+          <span className="leading-snug">Due today: <strong>${amountToCharge}.00</strong> {paymentOption === 'deposit' && `($${futureRemaining} balance due later)`}</span>
         </div>
-        <Lock className="w-3.5 h-3.5 text-emerald-700" />
+        <Lock className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
       </div>
     </div>
   );

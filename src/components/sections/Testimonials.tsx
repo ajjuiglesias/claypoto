@@ -27,21 +27,21 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto border-t border-[#ebd8c0]">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-3">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#ebd8c0]">
+      <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+        <span className="text-[11px] sm:text-xs uppercase font-bold tracking-[0.25em] text-[#855b25] block mb-2 sm:mb-3">
           Client Words
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#2c2520] font-normal tracking-tight">
+        <h2 className="font-serif text-2xl sm:text-4xl text-[#2c2520] font-normal tracking-tight">
           Trust Built on Quiet Artistry
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {reviews.map((r, i) => (
           <div
             key={i}
-            className="p-8 rounded-3xl bg-white border border-[#ebd8c0] flex flex-col justify-between relative shadow-xs hover:shadow-lg transition-all"
+            className="p-6 sm:p-8 rounded-3xl bg-white border border-[#ebd8c0] flex flex-col justify-between relative shadow-xs hover:shadow-lg transition-all"
           >
             <Quote className="w-8 h-8 text-[#dfc8a8]/40 absolute top-6 right-6" />
 

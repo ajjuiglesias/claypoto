@@ -89,25 +89,25 @@ export default function BookingModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#362e26]/35 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-[#362e26]/35 backdrop-blur-sm animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-2xl bg-white border-2 border-[#ebd8c0] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-2xl bg-white border-2 border-[#ebd8c0] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[96vh] sm:max-h-[92vh] animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header - Cream & White */}
-        <div className="px-6 py-4 border-b border-[#ebd8c0] flex items-center justify-between bg-[#fbf8f2]">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ebd8c0] flex items-center justify-between bg-[#fbf8f2]">
           <div>
-            <div className="text-[10px] uppercase font-bold tracking-widest text-[#855b25]">
+            <div className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#855b25]">
               Clay Photographer · Instant Booking Engine
             </div>
-            <h2 className="font-serif text-lg text-[#2c2520] font-bold">
+            <h2 className="font-serif text-base sm:text-lg text-[#2c2520] font-bold">
               {currentStep === 6 ? 'Reservation Confirmed' : 'Reserve Your Photography Session'}
             </h2>
           </div>
 
           <button
             onClick={closeBookingModal}
-            className="w-8 h-8 rounded-full bg-[#f5efe4] hover:bg-[#ebd8c0] flex items-center justify-center text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-full bg-[#f5efe4] hover:bg-[#ebd8c0] flex items-center justify-center text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer shrink-0 ml-2"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -116,15 +116,15 @@ export default function BookingModal() {
 
         {/* Stepper Bar (Steps 1-5 only) */}
         {currentStep <= 5 && (
-          <div className="px-6 py-3 bg-[#f5efe4] border-b border-[#ebd8c0] flex items-center justify-between">
+          <div className="px-3 sm:px-6 py-2.5 sm:py-3 bg-[#f5efe4] border-b border-[#ebd8c0] flex items-center justify-between overflow-x-auto">
             {steps.map((s) => {
               const isActive = currentStep === s.num;
               const isPast = currentStep > s.num;
 
               return (
-                <div key={s.num} className="flex items-center gap-1.5 text-xs">
+                <div key={s.num} className="flex items-center gap-1 sm:gap-1.5 text-xs shrink-0">
                   <div
-                    className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold transition-colors ${
+                    className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-[11px] font-bold transition-colors ${
                       isActive
                         ? 'bg-[#b88548] text-white shadow-xs'
                         : isPast
@@ -148,7 +148,7 @@ export default function BookingModal() {
         )}
 
         {/* Modal Body */}
-        <div className="px-6 py-6 overflow-y-auto flex-grow bg-white">
+        <div className="px-4 sm:px-6 py-4 sm:py-6 overflow-y-auto flex-grow bg-white">
           {errorMsg && (
             <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-medium animate-shake">
               {errorMsg}
@@ -165,11 +165,11 @@ export default function BookingModal() {
 
         {/* Modal Footer Controls (Steps 1-5 only) */}
         {currentStep <= 5 && (
-          <div className="px-6 py-4 bg-[#fbf8f2] border-t border-[#ebd8c0] flex items-center justify-between">
+          <div className="px-4 sm:px-6 py-3 sm:py-4 bg-[#fbf8f2] border-t border-[#ebd8c0] flex items-center justify-between gap-2">
             <button
               onClick={handleBack}
               disabled={currentStep === 1}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer ${
+              className={`inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer shrink-0 ${
                 currentStep === 1 ? 'invisible' : ''
               }`}
             >
@@ -179,7 +179,7 @@ export default function BookingModal() {
 
             <button
               onClick={handleNext}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#b88548] hover:bg-[#a07136] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#b88548] hover:bg-[#a07136] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer text-center"
             >
               <span>
                 {currentStep === 1 && 'Continue to Date & Time'}
@@ -188,7 +188,7 @@ export default function BookingModal() {
                 {currentStep === 4 && `Proceed to Deposit ($${depositDue})`}
                 {currentStep === 5 && `Pay $${depositDue} Deposit & Confirm`}
               </span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
             </button>
           </div>
         )}

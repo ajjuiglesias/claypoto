@@ -37,7 +37,7 @@ export default function Step2DateTime() {
           <span className="text-[11px] text-[#7a6a5b]">Next 14 Days</span>
         </div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+        <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5 sm:gap-2">
           {availability.map((day) => {
             const isSelected = selectedDate === day.date || (!selectedDate && activeDay?.date === day.date);
             const isBlocked = day.isBlocked;
@@ -47,7 +47,7 @@ export default function Step2DateTime() {
                 key={day.date}
                 disabled={isBlocked}
                 onClick={() => handleDateClick(day.date, isBlocked)}
-                className={`p-2.5 rounded-xl text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
+                className={`p-1.5 sm:p-2.5 rounded-xl text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
                   isBlocked
                     ? 'opacity-30 bg-[#f5efe4] border border-[#ebd8c0] cursor-not-allowed'
                     : isSelected
@@ -55,13 +55,13 @@ export default function Step2DateTime() {
                     : 'bg-white text-[#2c2520] border border-[#ebd8c0] hover:border-[#b88548]'
                 }`}
               >
-                <span className={`text-[10px] uppercase font-bold ${isSelected ? 'text-white' : 'text-[#7a6a5b]'}`}>
+                <span className={`text-[9px] sm:text-[10px] uppercase font-bold ${isSelected ? 'text-white' : 'text-[#7a6a5b]'}`}>
                   {day.dayOfWeek}
                 </span>
-                <span className="text-base font-bold my-0.5">
+                <span className="text-sm sm:text-base font-bold my-0.5">
                   {day.dayNumber}
                 </span>
-                <span className={`text-[9px] font-bold ${isSelected ? 'text-[#ebd8c0]' : isBlocked ? 'text-rose-600' : 'text-emerald-700'}`}>
+                <span className={`text-[8px] sm:text-[9px] font-bold ${isSelected ? 'text-[#ebd8c0]' : isBlocked ? 'text-rose-600' : 'text-emerald-700'}`}>
                   {isBlocked ? 'Booked' : 'Open'}
                 </span>
               </button>

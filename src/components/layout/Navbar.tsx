@@ -34,13 +34,13 @@ export default function Navbar() {
           : 'bg-transparent py-6 border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand */}
         <Link href="/" className="group flex flex-col">
-          <span className="font-serif text-2xl tracking-[0.2em] font-semibold text-[#2c2520] group-hover:text-[#b88548] transition-colors">
+          <span className="font-serif text-xl sm:text-2xl tracking-[0.2em] font-semibold text-[#2c2520] group-hover:text-[#b88548] transition-colors">
             CLAY
           </span>
-          <span className="text-[10px] tracking-[0.35em] text-[#b88548] font-sans font-semibold uppercase">
+          <span className="text-[9px] sm:text-[10px] tracking-[0.35em] text-[#855b25] font-sans font-semibold uppercase">
             Photographer
           </span>
         </Link>
