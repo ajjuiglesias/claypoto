@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream-50: #fdfcf9;
+  --color-cream-100: #fbf8f2;
+  --color-cream-200: #f5efe4;
+  --color-cream-300: #ebd8c0;
+  --color-cream-400: #dfc8a8;
+
+  --color-mocha-900: #2c2520;
+  --color-mocha-800: #423830;
+  --color-mocha-700: #5c4f44;
+  --color-mocha-600: #7a6a5b;
+  --color-mocha-500: #9e8976;
+
+  --color-honey-500: #b88548;
+  --color-honey-600: #a07136;
+  --color-honey-700: #855b25;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+}
+
+:root {
+  --background: #fbf8f2;
+  --foreground: #2c2520;
+  --card-bg: #ffffff;
+  --border-subtle: #ebd8c0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  selection-background-color: #ebd8c0;
+  selection-color: #2c2520;
+}
+
+/* Custom Cream Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5efe4;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfc8a8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b88548;
+}
+
+/* Smooth Image Transitions */
+.editorial-img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-card:hover .editorial-img {
+  transform: scale(1.04);
+}
+
+/* Cream & White Panels */
+.cream-panel {
+  background: #ffffff;
+  border: 1px solid #ebd8c0;
+  box-shadow: 0 10px 30px -5px rgba(44, 37, 32, 0.04);
+}
+
+.cream-panel-featured {
+  background: #ffffff;
+  border: 2px solid #b88548;
+  box-shadow: 0 14px 36px -8px rgba(184, 133, 72, 0.16);
+}

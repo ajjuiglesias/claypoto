@@ -1,0 +1,58 @@
+import { PortfolioItem } from '@/types';
+
+export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  {
+    id: 'port-1',
+    title: 'Modern Minimalist Portrait',
+    category: 'portraits',
+    imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop',
+    description: 'Natural light study highlighting texture, authentic expression, and subtle tones.',
+    location: 'Downtown Studio & Highline',
+    recommendedPackageId: 'pkg-signature',
+  },
+  {
+    id: 'port-2',
+    title: 'Golden Dune Intimacy',
+    category: 'couples',
+    imageUrl: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop',
+    description: 'Candid moments at twilight. Unposed movement, warmth, and genuine laughter.',
+    location: 'Coastal Dunes, California',
+    recommendedPackageId: 'pkg-signature',
+  },
+  {
+    id: 'port-3',
+    title: 'Artisanal Studio Brand',
+    category: 'branding',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop',
+    description: 'Elevated creative branding for founders, architects, and designers.',
+    location: 'Industrial Loft Studio',
+    recommendedPackageId: 'pkg-editorial',
+  },
+  {
+    id: 'port-4',
+    title: 'Quiet Sunlight Solitude',
+    category: 'portraits',
+    imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop',
+    description: 'Editorial male portraiture featuring soft cinematic chiaroscuro.',
+    location: 'Warehouse District',
+    recommendedPackageId: 'pkg-mini',
+  },
+  {
+    id: 'port-5',
+    title: 'Elopement in the Pine Pines',
+    category: 'weddings',
+    imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop',
+    description: 'Intimate forest vows surrounded by evergreens and soft mountain mist.',
+    location: 'Pacific Northwest',
+    recommendedPackageId: 'pkg-editorial',
+  },
+  {
+    id: 'port-6',
+    title: 'Heritage Generation Story',
+    category: 'families',
+    imageUrl: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop',
+    description: 'Warm, timeless family connection that feels effortless and grounded.',
+    location: 'Sun Valley Ranch',
+    recommendedPackageId: 'pkg-signature',
+  },
+];
