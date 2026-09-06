@@ -7,7 +7,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Individuals, creatives, and artists looking for depth, not corporate headshots.',
     description: 'A relaxed, guided photography experience designed to create natural, timeless portraits. We focus on clean composition, organic light, and capturing who you really are.',
     startingPrice: 350,
-    imageUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/srv-1.jpg',
     inclusions: [
       'Comprehensive styling & location consultation',
       'High-resolution retouched digital gallery',
@@ -22,7 +22,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'For love stories that value honesty, movement, and intimacy over stiff posing.',
     description: 'Whether celebrating an anniversary, engagement, or quiet elopement, we create space for you to be yourselves. No forced smiles—just genuine romance against stunning natural backdrops.',
     startingPrice: 550,
-    imageUrl: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/srv-2.jpg',
     inclusions: [
       'Sunset or golden hour timing for magical light',
       'Up to 2 locations or wardrobe changes',
@@ -37,7 +37,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Elevate your aesthetic authority across web, press, and editorial channels.',
     description: 'Bespoke commercial visual libraries tailored for founders, creators, designers, and boutique hospitality brands. We craft images that communicate high value and convert attention.',
     startingPrice: 850,
-    imageUrl: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/srv-3.jpg',
     inclusions: [
       'Pre-shoot creative direction & moodboard development',
       'Mix of candid working shots, detail textures, and portraits',
@@ -52,7 +52,7 @@ export const SERVICES: ServiceItem[] = [
     subtitle: 'Capturing the wild, messy, beautiful seasons of growth.',
     description: 'Forget stiff studio setups where everyone looks exhausted. We capture your family running through fields, sharing unscripted hugs, and creating memories your children will cherish.',
     startingPrice: 450,
-    imageUrl: 'https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/srv-4.jpg',
     inclusions: [
       'Gentle pacing adaptable to kids and pets',
       'Guidance on timeless wardrobe coordination',

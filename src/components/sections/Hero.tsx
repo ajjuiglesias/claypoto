@@ -13,7 +13,7 @@ export default function Hero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2200&auto=format&fit=crop')`,
+          backgroundImage: `url('/images/hero.jpg')`,
         }}
       >
         {/* Soft luminous cream overlay — stronger on mobile for text readability */}
