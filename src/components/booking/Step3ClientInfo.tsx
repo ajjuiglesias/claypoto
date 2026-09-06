@@ -3,6 +3,10 @@
 import React from 'react';
 import { useBooking } from '@/context/BookingContext';
 import { User, Mail, Phone, FileText, Wand2 } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 export default function Step3ClientInfo() {
   const { clientInfo, setClientInfo } = useBooking();
@@ -20,96 +24,104 @@ export default function Step3ClientInfo() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h3 className="font-serif text-xl text-[#1c1b19] font-semibold mb-1">
-            Client Details
+          <h3 className="font-serif text-lg sm:text-xl text-[#2c2520] font-bold mb-1">
+            Client & Session Details
           </h3>
-          <p className="text-xs text-[#5e5951] font-light">
-            Where we send your shoot confirmation, styling guide, and contract.
+          <p className="text-xs text-[#7a6a5b] font-light">
+            Where we send your shoot confirmation, styling guide, and contract agreement.
           </p>
         </div>
 
         {/* Demo Fast-fill button */}
-        <button
+        <Button
           type="button"
+          variant="gold"
+          size="sm"
           onClick={handleFillDemo}
-          className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#faf1e3] hover:bg-[#ebd8bd] text-[#8c6734] text-xs font-bold border border-[#d6ba92] transition-colors cursor-pointer"
+          className="self-start sm:self-auto gap-1.5 cursor-pointer"
         >
           <Wand2 className="w-3.5 h-3.5" />
           <span>Demo Auto-fill</span>
-        </button>
+        </Button>
       </div>
 
       <div className="space-y-4">
         {/* Name */}
-        <div>
-          <label className="block text-xs font-bold text-[#1c1b19] mb-1.5">
-            Full Name <span className="text-[#8c6734]">*</span>
-          </label>
+        <div className="space-y-1.5">
+          <Label htmlFor="client-name" className="flex items-center gap-1">
+            <span>Full Name</span>
+            <span className="text-[#b88548]">*</span>
+          </Label>
           <div className="relative">
-            <User className="w-4 h-4 text-[#736c61] absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
+            <User className="w-4 h-4 text-[#9e8976] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Input
+              id="client-name"
               type="text"
               required
               value={clientInfo.name}
               onChange={(e) => setClientInfo({ ...clientInfo, name: e.target.value })}
               placeholder="e.g. Sarah Jenkins"
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-[#e8e2d5] text-[#1c1b19] text-sm focus:outline-none focus:border-[#8c6734] focus:ring-1 focus:ring-[#8c6734] transition-colors"
+              className="pl-10"
             />
           </div>
         </div>
 
         {/* Email and Phone 2-Col */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs font-bold text-[#1c1b19] mb-1.5">
-              Email Address <span className="text-[#8c6734]">*</span>
-            </label>
+          <div className="space-y-1.5">
+            <Label htmlFor="client-email" className="flex items-center gap-1">
+              <span>Email Address</span>
+              <span className="text-[#b88548]">*</span>
+            </Label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-[#736c61] absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
+              <Mail className="w-4 h-4 text-[#9e8976] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Input
+                id="client-email"
                 type="email"
                 required
                 value={clientInfo.email}
                 onChange={(e) => setClientInfo({ ...clientInfo, email: e.target.value })}
                 placeholder="sarah@example.com"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-[#e8e2d5] text-[#1c1b19] text-sm focus:outline-none focus:border-[#8c6734] focus:ring-1 focus:ring-[#8c6734] transition-colors"
+                className="pl-10"
               />
             </div>
-            <span className="text-[10px] text-[#736c61] mt-1 block font-medium">Contract & gallery link will arrive here</span>
+            <span className="text-[10px] text-[#7a6a5b] block font-light">Contract & gallery link will arrive here</span>
           </div>
 
-          <div>
-            <label className="block text-xs font-bold text-[#1c1b19] mb-1.5">
-              Mobile Phone <span className="text-[#8c6734]">*</span>
-            </label>
+          <div className="space-y-1.5">
+            <Label htmlFor="client-phone" className="flex items-center gap-1">
+              <span>Mobile Phone</span>
+              <span className="text-[#b88548]">*</span>
+            </Label>
             <div className="relative">
-              <Phone className="w-4 h-4 text-[#736c61] absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
+              <Phone className="w-4 h-4 text-[#9e8976] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Input
+                id="client-phone"
                 type="tel"
                 required
                 value={clientInfo.phone}
                 onChange={(e) => setClientInfo({ ...clientInfo, phone: e.target.value })}
-                placeholder="(555) 000-0000"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-[#e8e2d5] text-[#1c1b19] text-sm focus:outline-none focus:border-[#8c6734] focus:ring-1 focus:ring-[#8c6734] transition-colors"
+                placeholder="(415) 349-2041"
+                className="pl-10"
               />
             </div>
-            <span className="text-[10px] text-[#736c61] mt-1 block font-medium">For location arrival coordination</span>
+            <span className="text-[10px] text-[#7a6a5b] block font-light">For location arrival coordination</span>
           </div>
         </div>
 
         {/* Shoot Notes */}
-        <div>
-          <label className="block text-xs font-bold text-[#1c1b19] mb-1.5">
+        <div className="space-y-1.5">
+          <Label htmlFor="client-notes">
             Shoot Vision or Location Ideas (Optional)
-          </label>
+          </Label>
           <div className="relative">
-            <FileText className="w-4 h-4 text-[#736c61] absolute left-3.5 top-3.5" />
-            <textarea
-              rows={3}
+            <FileText className="w-4 h-4 text-[#9e8976] absolute left-3.5 top-3 pointer-events-none" />
+            <Textarea
+              id="client-notes"
               value={clientInfo.notes}
               onChange={(e) => setClientInfo({ ...clientInfo, notes: e.target.value })}
               placeholder="Tell us about the vibe, specific outfits, or locations you are considering..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-[#e8e2d5] text-[#1c1b19] text-sm focus:outline-none focus:border-[#8c6734] focus:ring-1 focus:ring-[#8c6734] transition-colors resize-none"
+              className="pl-10 min-h-[85px]"
             />
           </div>
         </div>

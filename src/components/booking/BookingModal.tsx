@@ -2,7 +2,19 @@
 
 import React, { useState } from 'react';
 import { useBooking } from '@/context/BookingContext';
-import { X, ArrowRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft, AlertCircle, Sparkles, Check } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+
 import Step1Package from './Step1Package';
 import Step2DateTime from './Step2DateTime';
 import Step3ClientInfo from './Step3ClientInfo';
@@ -29,8 +41,6 @@ export default function BookingModal() {
 
   const [confirmedBookingId, setConfirmedBookingId] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-
-  if (!isModalOpen) return null;
 
   const steps = [
     { num: 1, label: 'Package' },
@@ -88,71 +98,75 @@ export default function BookingModal() {
     }
   };
 
+  const progressPercent = Math.min(100, Math.round((currentStep / 5) * 100));
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-[#362e26]/35 backdrop-blur-sm animate-in fade-in duration-200">
-      <div
-        className="relative w-full max-w-2xl bg-white border-2 border-[#ebd8c0] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[96vh] sm:max-h-[92vh] animate-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Modal Header - Cream & White */}
-        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[#ebd8c0] flex items-center justify-between bg-[#fbf8f2]">
-          <div>
-            <div className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#855b25]">
-              Clay Photographer · Instant Booking Engine
-            </div>
-            <h2 className="font-serif text-base sm:text-lg text-[#2c2520] font-bold">
-              {currentStep === 6 ? 'Reservation Confirmed' : 'Reserve Your Photography Session'}
-            </h2>
+    <Dialog open={isModalOpen} onOpenChange={(open) => !open && closeBookingModal()}>
+      <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden border-2 border-[#ebd8c0] bg-white shadow-2xl">
+        {/* Modal Top Header */}
+        <div className="px-5 sm:px-7 py-4 border-b border-[#ebd8c0] bg-[#fbf8f2]">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Badge variant="gold" className="text-[9px] py-0.5 px-2">
+              <Sparkles className="w-3 h-3 text-[#b88548]" />
+              <span>Clay Photographer Booking</span>
+            </Badge>
+            {currentStep <= 5 && (
+              <span className="text-[11px] font-bold text-[#7a6a5b]">
+                Step {currentStep} of 5
+              </span>
+            )}
           </div>
 
-          <button
-            onClick={closeBookingModal}
-            className="w-8 h-8 rounded-full bg-[#f5efe4] hover:bg-[#ebd8c0] flex items-center justify-center text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer shrink-0 ml-2"
-            aria-label="Close modal"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          <DialogHeader>
+            <DialogTitle className="text-xl sm:text-2xl text-[#2c2520]">
+              {currentStep === 6 ? 'Reservation Confirmed' : 'Reserve Your Photography Session'}
+            </DialogTitle>
+            <DialogDescription className="text-xs text-[#7a6a5b]">
+              {currentStep === 1 && 'Select your preferred photography tier and optional creative add-ons.'}
+              {currentStep === 2 && 'Choose your date and optimal natural lighting time slot.'}
+              {currentStep === 3 && 'Provide your contact info for shoot preparation and styling guide.'}
+              {currentStep === 4 && 'Review standard shoot terms and complete electronic signature.'}
+              {currentStep === 5 && 'Secure your booking date with a 30% reservation deposit.'}
+              {currentStep === 6 && 'Your session is officially locked in. Calendar invite and styling guide are ready.'}
+            </DialogDescription>
+          </DialogHeader>
+
+          {/* Stepper Progress Bar */}
+          {currentStep <= 5 && (
+            <div className="mt-3.5 space-y-2">
+              <Progress value={progressPercent} className="h-1.5 bg-[#ebd8c0]" />
+              <div className="flex items-center justify-between text-[11px] text-[#7a6a5b] font-medium">
+                {steps.map((s) => {
+                  const isActive = currentStep === s.num;
+                  const isPast = currentStep > s.num;
+                  return (
+                    <span
+                      key={s.num}
+                      className={`flex items-center gap-1 transition-colors ${
+                        isActive
+                          ? 'text-[#855b25] font-bold'
+                          : isPast
+                          ? 'text-emerald-700 font-semibold'
+                          : 'text-[#9e8976]'
+                      }`}
+                    >
+                      {isPast ? <Check className="w-3 h-3 text-emerald-600" /> : null}
+                      <span className="hidden sm:inline">{s.label}</span>
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Stepper Bar (Steps 1-5 only) */}
-        {currentStep <= 5 && (
-          <div className="px-3 sm:px-6 py-2.5 sm:py-3 bg-[#f5efe4] border-b border-[#ebd8c0] flex items-center justify-between overflow-x-auto">
-            {steps.map((s) => {
-              const isActive = currentStep === s.num;
-              const isPast = currentStep > s.num;
-
-              return (
-                <div key={s.num} className="flex items-center gap-1 sm:gap-1.5 text-xs shrink-0">
-                  <div
-                    className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-[11px] font-bold transition-colors ${
-                      isActive
-                        ? 'bg-[#b88548] text-white shadow-xs'
-                        : isPast
-                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                        : 'bg-white text-[#7a6a5b] border border-[#ebd8c0]'
-                    }`}
-                  >
-                    {isPast ? '✓' : s.num}
-                  </div>
-                  <span
-                    className={`hidden sm:inline text-[11px] font-bold ${
-                      isActive ? 'text-[#2c2520]' : isPast ? 'text-emerald-800' : 'text-[#7a6a5b]'
-                    }`}
-                  >
-                    {s.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Modal Body */}
-        <div className="px-4 sm:px-6 py-4 sm:py-6 overflow-y-auto flex-grow bg-white">
+        {/* Modal Scrollable Body */}
+        <div className="px-5 sm:px-7 py-5 overflow-y-auto flex-grow bg-white max-h-[62vh]">
           {errorMsg && (
-            <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-medium animate-shake">
-              {errorMsg}
-            </div>
+            <Alert variant="destructive" className="mb-4">
+              <AlertCircle className="w-4 h-4" />
+              <AlertDescription>{errorMsg}</AlertDescription>
+            </Alert>
           )}
 
           {currentStep === 1 && <Step1Package />}
@@ -163,36 +177,47 @@ export default function BookingModal() {
           {currentStep === 6 && <Step6Confirmation bookingId={confirmedBookingId} />}
         </div>
 
-        {/* Modal Footer Controls (Steps 1-5 only) */}
+        {/* Modal Footer Controls */}
         {currentStep <= 5 && (
-          <div className="px-4 sm:px-6 py-3 sm:py-4 bg-[#fbf8f2] border-t border-[#ebd8c0] flex items-center justify-between gap-2">
-            <button
+          <div className="px-5 sm:px-7 py-3.5 bg-[#fbf8f2] border-t border-[#ebd8c0] flex items-center justify-between gap-3 shrink-0">
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handleBack}
               disabled={currentStep === 1}
-              className={`inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold text-[#5c4f44] hover:text-[#2c2520] transition-colors cursor-pointer shrink-0 ${
+              className={`gap-1.5 text-xs text-[#5c4f44] border-[#ebd8c0] ${
                 currentStep === 1 ? 'invisible' : ''
               }`}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
-            </button>
+            </Button>
 
-            <button
-              onClick={handleNext}
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#b88548] hover:bg-[#a07136] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer text-center"
-            >
-              <span>
-                {currentStep === 1 && 'Continue to Date & Time'}
-                {currentStep === 2 && 'Continue to Details'}
-                {currentStep === 3 && 'Review Agreement'}
-                {currentStep === 4 && `Proceed to Deposit ($${depositDue})`}
-                {currentStep === 5 && `Pay $${depositDue} Deposit & Confirm`}
-              </span>
-              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-            </button>
+            <div className="flex items-center gap-2">
+              <div className="text-right hidden sm:block">
+                <div className="text-[10px] uppercase font-bold text-[#7a6a5b]">Deposit Today</div>
+                <div className="text-xs font-serif font-bold text-[#2c2520]">${depositDue}</div>
+              </div>
+
+              <Button
+                variant="default"
+                size="default"
+                onClick={handleNext}
+                className="gap-2 px-6 py-2.5 font-bold uppercase tracking-wider text-xs shadow-md hover:shadow-lg"
+              >
+                <span>
+                  {currentStep === 1 && 'Continue to Schedule'}
+                  {currentStep === 2 && 'Continue to Details'}
+                  {currentStep === 3 && 'Review Agreement'}
+                  {currentStep === 4 && `Proceed to Deposit ($${depositDue})`}
+                  {currentStep === 5 && `Pay $${depositDue} Deposit & Confirm`}
+                </span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Button>
+            </div>
           </div>
         )}
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
