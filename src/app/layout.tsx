@@ -3,7 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { BookingProvider } from '@/context/BookingContext';
 import BookingModal from '@/components/booking/BookingModal';
-
+import SmoothScroll from '@/components/layout/SmoothScroll';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -43,11 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${jakarta.variable} scroll-smooth`}>
+    <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
       <body className="min-h-screen bg-[#fbf8f2] text-[#2c2520] font-sans antialiased selection:bg-[#ebd8c0] selection:text-[#2c2520]">
         <BookingProvider>
-          
-          {children}
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
 
           {/* Master 7-Step Interactive Booking Engine Modal */}
           <BookingModal />

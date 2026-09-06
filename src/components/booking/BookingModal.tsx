@@ -161,7 +161,7 @@ export default function BookingModal() {
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="px-5 sm:px-7 py-5 overflow-y-auto flex-grow bg-white max-h-[62vh]">
+        <div data-lenis-prevent className="px-5 sm:px-7 py-5 overflow-y-auto flex-grow bg-white max-h-[62vh]">
           {errorMsg && (
             <Alert variant="destructive" className="mb-4">
               <AlertCircle className="w-4 h-4" />
